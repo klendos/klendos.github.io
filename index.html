@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Prochaines Aventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Fond léger */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Pour que le footer reste en bas */
+        }
+
+        header {
+            background-color: #2c3e50; /* Bleu foncé pour l'en-tête */
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out; /* Animation pour le titre */
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out; /* Animation pour le sous-titre */
+        }
+
+        .container {
+            flex-grow: 1; /* Permet au contenu de prendre l'espace disponible */
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Espace entre les blocs d'aventure */
+        }
+
+        .adventure-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1.5s ease-out; /* Animation pour les cartes */
+        }
+
+        .adventure-card:hover {
+            transform: translateY(-5px); /* Effet de léger soulèvement au survol */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .adventure-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e63946; /* Rouge vif */
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .adventure-card p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .adventure-card .btn {
+            display: inline-block;
+            background-color: #457b9d; /* Bleu clair */
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .adventure-card .btn:hover {
+            background-color: #1d3557; /* Bleu foncé au survol */
+            transform: scale(1.05); /* Léger agrandissement */
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px; /* Espacement avant le footer */
+            font-size: 0.9em;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .adventure-card {
+                padding: 25px;
+            }
+
+            .adventure-card h2 {
+                font-size: 1.8em;
+            }
+
+            .adventure-card p {
+                font-size: 1em;
+            }
+
+            .adventure-card .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mes Prochaines Aventures !</h1>
+        <p>Découvrez mes itinéraires de voyage passés et futurs.</p>
+    </header>
+
+    <div class="container">
+        <section class="adventure-card">
+            <h2>L'Été en France : Alpes & Cévennes</h2>
+            <p>Revivez le programme détaillé de mes vacances d'été 2025, entre les sommets des Alpes et les paysages authentiques des Cévennes. Balades, découvertes et détente garanties !</p>
+            <a href="programme_ete_2025.html" class="btn">Voir le programme Été 2025</a>
+        </section>
+
+        <section class="adventure-card">
+            <h2>Vietnam 2026 : Le Voyage de Rêve</h2>
+            <p>Préparez-vous à une immersion culturelle et naturelle au cœur du Vietnam. Découvrez le programme envisagé pour mon voyage en 2026, de Hanoï à Hô Chi Minh-Ville, en passant par la Baie d'Ha Long.</p>
+            <a href="programme_vietnam_2026.html" class="btn">Découvrir le Vietnam 2026</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - Mes Aventures de Voyage. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
