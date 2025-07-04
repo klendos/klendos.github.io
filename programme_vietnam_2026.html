@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinéraire de Voyage : 15 Jours au Vietnam</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Variables & Réinitialisation --- */
+        :root {
+            --font-body: 'Open Sans', sans-serif;
+            --font-title: 'Playfair Display', serif;
+            --color-dark-1: #1d3557;
+            --color-dark-2: #2c3e50;
+            --color-mid-blue: #457b9d;
+            --color-light-1: #a8dadc;
+            --color-light-2: #e0f2f7;
+            --color-accent: #e63946;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--color-light-2);
+            color: var(--color-dark-2);
+            line-height: 1.7;
+        }
+        
+        /* --- Structure & Layout --- */
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--color-dark-1);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: var(--color-dark-2);
+            color: var(--color-light-1);
+            font-size: 0.9rem;
+        }
+
+        /* --- Typographie --- */
+        h1, h2 {
+            font-family: var(--font-title);
+            color: var(--color-dark-1);
+            margin: 0;
+        }
+
+        main > h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.2em;
+        }
+        
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--color-light-1);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        strong {
+            color: var(--color-mid-blue);
+        }
+        
+        /* --- Navigation --- */
+        nav {
+            background-color: var(--color-dark-2);
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        #main-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #main-nav li { margin: 5px 15px; }
+        
+        #main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #main-nav a:hover, #main-nav a:focus {
+            background-color: var(--color-mid-blue);
+            outline: none;
+        }
+
+        /* --- Composants : Sections & Cartes --- */
+        .day-section, .list-section, .travel-section {
+            background-color: #ffffff;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section-content {
+            overflow: hidden;
+            max-height: 2000px; /* Grande valeur pour l'état déplié */
+            opacity: 1;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease, margin 0.3s ease;
+        }
+
+        .section-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            visibility: hidden;
+        }
+
+        .toggle-icon {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-left: 20px;
+            color: var(--color-mid-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header[aria-expanded="true"] .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        /* --- Composants : Boutons & Listes --- */
+        .toggle-all-buttons {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .toggle-all-buttons button {
+            background: var(--color-mid-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .toggle-all-buttons button:hover {
+            background: var(--color-dark-1);
+            transform: translateY(-2px);
+        }
+        
+        .activity-list, .clothing-list, .equipment-list, .todo-list, .travel-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-list li, .clothing-list li, .equipment-list li, .todo-list li, .travel-details li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .activity-list li, .clothing-list li, .equipment-list li, .travel-details li {
+            padding-left: 30px;
+        }
+
+        /* Style commun pour les icônes de liste */
+        .clothing-list li::before, .equipment-list li::before, .travel-details li::before, .activity-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0px;
+        }
+        
+        .activity-list li::before { content: '•'; left: 10px; color: var(--color-mid-blue); font-weight: bold; }
+        .clothing-list li::before { content: '👕'; }
+        .equipment-list li::before { content: '🎒'; }
+        .travel-details li::before { content: '✈️'; }
+        
+        .todo-list input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.3);
+            accent-color: var(--color-mid-blue);
+        }
+        .todo-list label { cursor: pointer; }
+
+        .travel-details strong { color: var(--color-accent); }
+        
+        /* --- Composants : Éléments divers --- */
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 15px auto 0;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .note {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+            color: #8a6d3b;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.3rem; }
+            
+            .menu-toggle { display: block; }
+            
+            #main-nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            #main-nav.active { display: flex; }
+            #main-nav li { margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Périple de 15 Jours au Vietnam</h1>
+        <p>Du 04 avril au 18 avril 2026</p>
+    </header>
+
+    <nav>
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+        <ul id="main-nav">
+            <li><a href="#hanoi">Hanoï & Nord</a></li>
+            <li><a href="#centre">Centre</a></li>
+            <li><a href="#sud">Sud</a></li>
+            <li><a href="#infos">Infos Pratiques</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <div class="toggle-all-buttons">
+            <button id="expandAll">Tout déplier</button>
+            <button id="collapseAll">Tout replier</button>
+        </div>
+        
+        <hr>
+        <h1 id="hanoi">Nord : Hanoï & Baie d'Halong</h1>
+        <hr>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j1">
+                <h2>Jour 1 : Vendredi 4 avril - Arrivée à Hanoï</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j1" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Après-midi :</strong> Arrivée à l'aéroport de Hanoï (HAN) à 15h25. Transfert vers l'hôtel dans le vieux quartier.</li>
+                    <li><strong>Soir :</strong> Première immersion dans le vieux quartier (36 rues et corporations). Dîner de bienvenue pour goûter un plat emblématique : le <strong>Phở</strong>. Promenade autour du lac Hoan Kiem illuminé.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j2">
+                <h2>Jour 2 : Samedi 5 avril - Exploration de Hanoï</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j2" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Visite du Mausolée de Hô Chi Minh (extérieur), de sa maison sur pilotis et de la Pagode au Pilier Unique. Visite du Temple de la Littérature, première université du Vietnam.</li>
+                    <li><strong>Après-midi :</strong> Découverte du musée d'ethnographie pour comprendre la diversité culturelle du pays. Balade en cyclo-pousse dans les rues animées.</li>
+                    <li><strong>Soir :</strong> Spectacle de marionnettes sur l'eau. Dîner libre pour explorer la street food, ne manquez pas le <strong>Bún chả</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j3">
+                <h2>Jour 3 : Dimanche 6 avril - Transfert vers la Baie d'Halong</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j3" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Départ en navette pour la Baie d'Halong (ou la baie voisine de Lan Ha, moins touristique).</li>
+                    <li><strong>Midi :</strong> Embarquement sur une jonque traditionnelle. Déjeuner de fruits de mer à bord tout en débutant la croisière au milieu des milliers de pains de sucre karstiques.</li>
+                    <li><strong>Après-midi :</strong> Visite de la grotte de la Surprise (Sung Sot) ou d'une autre grotte. Baignade ou kayak dans un décor féérique.</li>
+                    <li><strong>Soir :</strong> Dîner et nuit à bord de la jonque, sous les étoiles.</li>
+                </ul>
+                <img src="http://googleusercontent.com/image_generation_content/3" alt="Jonque traditionnelle naviguant dans la Baie d'Halong au coucher du soleil.">
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j4">
+                <h2>Jour 4 : Lundi 7 avril - Retour à Hanoï</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j4" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Réveil sur la baie, petit-déjeuner à bord. Continuation de la croisière. Brunch avant le débarquement vers 11h00.</li>
+                    <li><strong>Après-midi :</strong> Route de retour vers Hanoï. Installation à l'hôtel.</li>
+                    <li><strong>Soir :</strong> Soirée libre pour des achats de souvenirs ou pour déguster un "café à l'œuf" (cà phê trứng), une spécialité de Hanoï.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <hr>
+        <h1 id="centre">Centre : Hội An & Hué</h1>
+        <hr>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j5">
+                <h2>Jour 5 : Mardi 8 avril - Vol vers le Centre et Hội An</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j5" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Transfert à l'aéroport de Hanoï pour un vol matinal vers Da Nang (DAD).</li>
+                    <li><strong>Midi :</strong> Arrivée à Da Nang, accueil et transfert vers Hội An (environ 45 min). Installation à l'hôtel.</li>
+                    <li><strong>Après-midi :</strong> Première découverte de la vieille ville de Hội An, classée à l'UNESCO. Balade à pied pour admirer le pont japonais, les maisons anciennes et les temples chinois.</li>
+                    <li><strong>Soir :</strong> Dîner à Hội An pour goûter les spécialités locales comme le <strong>Cao lầu</strong>. La ville s'illumine de milliers de lanternes colorées, une ambiance magique.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j6">
+                <h2>Jour 6 : Mercredi 9 avril - Charme de Hội An</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j6" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Cours de cuisine vietnamienne, incluant une visite au marché local pour acheter les ingrédients.</li>
+                    <li><strong>Après-midi :</strong> Promenade à vélo dans la campagne environnante, à travers les rizières et les petits villages. Possibilité de se détendre à la plage d'An Bang.</li>
+                    <li><strong>Soir :</strong> Temps libre pour faire du shopping (Hội An est réputée pour ses tailleurs sur mesure) ou profiter d'un massage.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j7">
+                <h2>Jour 7 : Jeudi 10 avril - Route vers Hué</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j7" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Départ pour Hué en voiture privée, en empruntant la magnifique route du Col des Nuages (Hai Van Pass) qui offre des vues spectaculaires sur la côte.</li>
+                    <li><strong>Midi :</strong> Arrivée à Hué, l'ancienne capitale impériale. Déjeuner et installation à l'hôtel.</li>
+                    <li><strong>Après-midi :</strong> Visite de la Cité Impériale, un vaste complexe de palais, temples et jardins, inspiré de la Cité Interdite de Pékin.</li>
+                    <li><strong>Soir :</strong> Dîner-croisière sur la Rivière des Parfums avec musique traditionnelle.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j8">
+                <h2>Jour 8 : Vendredi 11 avril - Trésors de Hué</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j8" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Promenade en bateau-dragon sur la Rivière des Parfums pour visiter la pagode Thien Mu (pagode de la Dame Céleste).</li>
+                    <li><strong>Après-midi :</strong> Exploration des tombeaux des empereurs Nguyen, notamment le mausolée de Minh Mang et celui de Khai Dinh, chacun avec une architecture unique.</li>
+                    <li><strong>Soir :</strong> Dîner libre pour explorer la cuisine impériale de Hué.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+        <h1 id="sud">Sud : Hô Chi Minh-Ville & Delta du Mékong</h1>
+        <hr>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j9">
+                <h2>Jour 9 : Samedi 12 avril - Vol vers le Sud</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j9" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Matinée libre à Hué, puis transfert à l'aéroport (HUI) pour un vol vers Hô Chi Minh-Ville (SGN).</li>
+                    <li><strong>Après-midi :</strong> Arrivée à Hô Chi Minh-Ville (anciennement Saïgon). Transfert à l'hôtel. Première approche de la métropole la plus dynamique du pays.</li>
+                    <li><strong>Soir :</strong> Dîner dans le quartier du district 1. Possibilité de monter au sommet d'un rooftop bar pour une vue panoramique sur la ville.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j10">
+                <h2>Jour 10 : Dimanche 13 avril - Histoire de Saïgon</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j10" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Visite des sites historiques : le Palais de la Réunification, la cathédrale Notre-Dame et la Poste Centrale conçue par Gustave Eiffel.</li>
+                    <li><strong>Après-midi :</strong> Visite poignante du Musée des Vestiges de la Guerre pour comprendre l'histoire récente du Vietnam.</li>
+                    <li><strong>Soir :</strong> Exploration du marché de Ben Thanh pour le dîner et le shopping.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j11">
+                <h2>Jour 11 : Lundi 14 avril - Tunnels de Cu Chi</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j11" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Excursion aux tunnels de Cu Chi, un immense réseau de galeries souterraines utilisées par les Viet Cong pendant la guerre.</li>
+                    <li><strong>Après-midi :</strong> Retour à Hô Chi Minh-Ville. Temps libre pour explorer le quartier chinois (Cholon) et son marché Binh Tay.</li>
+                    <li><strong>Soir :</strong> Soirée libre.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j12">
+                <h2>Jour 12 : Mardi 15 avril - Immersion dans le Delta du Mékong</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j12" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Journée :</strong> Départ pour une excursion dans le Delta du Mékong (région de Ben Tre ou Can Tho). Promenade en bateau sur les arroyos, visite d'une fabrique de bonbons à la noix de coco, dégustation de fruits tropicaux.</li>
+                    <li><strong>Soir :</strong> Dîner et nuit chez l'habitant ou dans un lodge pour une expérience authentique.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j13">
+                <h2>Jour 13 : Mercredi 16 avril - Marché Flottant et Retour</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j13" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Visite d'un marché flottant (comme celui de Cai Rang). C'est un spectacle fascinant de bateaux chargés de fruits et légumes.</li>
+                    <li><strong>Après-midi :</strong> Retour vers Hô Chi Minh-Ville. Installation à l'hôtel.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j14">
+                <h2>Jour 14 : Jeudi 17 avril - Journée Libre à Hô Chi Minh-Ville</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j14" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Journée :</strong> Journée entièrement libre pour les derniers achats, revisiter un lieu que vous avez aimé, ou simplement vous détendre.</li>
+                    <li><strong>Soir :</strong> Dîner d'adieu pour célébrer la fin du voyage.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="day-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-j15">
+                <h2>Jour 15 : Vendredi 18 avril - Départ</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-j15" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Matin :</strong> Temps libre en fonction de l'horaire de votre vol.</li>
+                    <li><strong>Soir :</strong> Transfert à l'aéroport de Hô Chi Minh-Ville (SGN) pour votre vol de départ à 22h00. Fin du voyage.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+        <h1 id="infos">Informations Pratiques</h1>
+        <hr>
+
+        <section class="list-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-vetements">
+                <h2>Vêtements & Équipement</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-vetements" class="section-content">
+                <ul class="clothing-list">
+                    <li>Vêtements légers et respirants (coton, lin).</li>
+                    <li>Un pantalon long et un haut à manches longues pour les visites de temples et la protection contre le soleil/moustiques.</li>
+                    <li>Un vêtement de pluie léger (type K-Way).</li>
+                    <li>Un pull ou une polaire légère pour les soirées en croisière ou les lieux climatisés.</li>
+                    <li>Maillot de bain.</li>
+                </ul>
+                <ul class="equipment-list">
+                    <li>Chapeau/casquette, lunettes de soleil et crème solaire.</li>
+                    <li>Répulsif anti-moustiques (zone tropicale).</li>
+                    <li>Chaussures de marche confortables et sandales/tongs.</li>
+                    <li>Adaptateur universel (type A, C, G sont courants).</li>
+                    <li>Petit sac à dos pour les excursions journalières.</li>
+                    <li>Sac étanche pour protéger les appareils électroniques.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="travel-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-transports">
+                <h2>Détails des Transports</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-transports" class="section-content">
+                <ul class="travel-details">
+                    <li><strong>Vol international Aller :</strong> <strong>Paris (CDG) → Hanoï (HAN)</strong>. Arrivée le 04/04 à 15h25.</li>
+                    <li><strong>Vol interne 1 :</strong> <strong>Hanoï (HAN) → Da Nang (DAD)</strong> le 08/04 au matin (durée ~1h20).</li>
+                    <li><strong>Vol interne 2 :</strong> <strong>Hué (HUI) → Hô Chi Minh (SGN)</strong> le 12/04 (durée ~1h30).</li>
+                    <li><strong>Vol international Retour :</strong> <strong>Hô Chi Minh (SGN) → Paris (CDG)</strong>. Départ le 18/04 à 22h00.</li>
+                    <li><strong>Autres transports :</strong> Voiture/minibus privés pour les transferts (aéroport, Halong, Hué) et taxis/Grab pour les déplacements en ville.</li>
+                </ul>
+                <div class="note">
+                    <strong>Important :</strong> L'application Grab (équivalent d'Uber en Asie du Sud-Est) est très pratique et économique pour se déplacer en voiture ou en scooter-taxi dans les grandes villes.
+                </div>
+            </div>
+        </section>
+
+        <section class="list-section">
+            <div class="section-header" role="button" aria-expanded="false" aria-controls="content-todo">
+                <h2>Liste des Choses à Faire Avant de Partir</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-todo" class="section-content">
+                <ul class="todo-list">
+                    <li><input type="checkbox" id="todo1"><label for="todo1">Vérifier la validité du passeport (6 mois après la date de retour).</label></li>
+                    <li><input type="checkbox" id="todo2"><label for="todo2">Faire la demande de e-visa pour le Vietnam (si nécessaire).</label></li>
+                    <li><input type="checkbox" id="todo3"><label for="todo3">Consulter un médecin pour les vaccins recommandés.</label></li>
+                    <li><input type="checkbox" id="todo4"><label for="todo4">Réserver les vols internes (HAN-DAD et HUI-SGN).</label></li>
+                    <li><input type="checkbox" id="todo5"><label for="todo5">Prévoir de changer un peu d'argent (Dong Vietnamien - VND) ou prévoir le retrait sur place.</label></li>
+                    <li><input type="checkbox" id="todo6"><label for="todo6">Souscrire à une assurance voyage.</label></li>
+                    <li><input type="checkbox" id="todo7"><label for="todo7">Acheter une carte SIM locale à l'arrivée ou un forfait eSIM.</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-section">
+             <div class="section-header" role="button" aria-expanded="false" aria-controls="content-conseils">
+                <h2>Conseils Généraux</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div id="content-conseils" class="section-content">
+                <ul class="activity-list">
+                    <li><strong>Négociation :</strong> Marchander est courant dans les marchés et petites boutiques. Faites-le avec le sourire.</li>
+                    <li><strong>Sécurité Alimentaire :</strong> Privilégiez les stands de street food avec beaucoup de clients locaux. Buvez de l'eau en bouteille capsulée.</li>
+                    <li><strong>Culture :</strong> Adoptez une tenue correcte pour visiter les lieux de culte (épaules et genoux couverts).</li>
+                    <li><strong>Météo en Avril :</strong> Le temps est généralement bon dans tout le pays. Le Nord sort de l'hiver (chaud et sec), le Centre est ensoleillé, et le Sud entre dans sa saison humide (chaleur et averses courtes possibles en fin de journée).</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2025 - Itinéraire de voyage personnalisé.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContainer = document.querySelector('.container');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('#main-nav');
+
+            // --- Logique du Menu Mobile ---
+            const toggleMobileMenu = () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                mainNav.classList.toggle('active');
+                menuToggle.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu' : 'Fermer le menu');
+            };
+            
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', toggleMobileMenu);
+                mainNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (mainNav.classList.contains('active')) {
+                            toggleMobileMenu();
+                        }
+                    });
+                });
+            }
+
+            // --- Logique des sections dépliables ---
+            const toggleSection = (header, forceState) => {
+                const content = document.getElementById(header.getAttribute('aria-controls'));
+                if (!content) return;
+
+                const isExpanded = forceState !== undefined ? !forceState : header.getAttribute('aria-expanded') === 'true';
+                
+                header.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('collapsed', isExpanded);
+            }
+
+            // Initialisation: Replier toutes les sections au chargement
+            document.querySelectorAll('.section-header').forEach(header => toggleSection(header, false));
+
+            // Délégation d'événement pour les clics sur les sections
+            mainContainer.addEventListener('click', (e) => {
+                const header = e.target.closest('.section-header');
+                if (header) {
+                    toggleSection(header);
+                }
+            });
+
+            // Boutons "Tout déplier" / "Tout replier"
+            mainContainer.addEventListener('click', (e) => {
+                const isExpandAll = e.target.id === 'expandAll';
+                const isCollapseAll = e.target.id === 'collapseAll';
+
+                if (isExpandAll || isCollapseAll) {
+                    const headers = mainContainer.querySelectorAll('.section-header');
+                    headers.forEach(header => toggleSection(header, isExpandAll));
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
