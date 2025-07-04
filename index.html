@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 5px rgba="0, 0, 0, 0.1";
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
@@ -85,7 +85,7 @@
             margin-bottom: 25px;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba="0, 0, 0, 0.05";
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         /* Styles pour les titres cliquables */
@@ -200,11 +200,30 @@
             font-size: 1em;
             top: 2px;
         }
+        .hiking-suggestion::before {
+            content: '🥾'; /* Emoji pour les randonnées */
+            font-size: 1em;
+            top: 2px;
+            color: #28a745; /* Couleur verte pour la rando */
+        }
 
 
         .activity-list li strong, .clothing-list li strong, .equipment-list li strong, .todo-list li strong, .travel-details li strong {
             color: #457b9d;
         }
+        .activity-list li .hiking-suggestion strong {
+            color: #28a745; /* Vert pour les titres de rando */
+        }
+        /* Style pour les liens des restaurants */
+        .activity-list li a {
+            color: #e63946; /* Rouge vif pour attirer l'attention sur les liens */
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .activity-list li a:hover {
+            color: #1d3557; /* Bleu plus foncé au survol */
+        }
+
 
         .note {
             background-color: #e0f2f7;
@@ -345,8 +364,9 @@
                 <ul class="activity-list">
                     <li><strong>Matin/Après-midi :</strong> Arrivée et installation à votre hébergement.</li>
                     <li><strong>Fin d'après-midi :</strong> Promenade découverte dans le **centre de Chorges**, visitez l'**église Saint-Victor**.</li>
-                    <img src="https://fr.m.wikipedia.org/wiki/Fichier:Eglise_-_Ensemble_nord-ouest_-_Chorges_-_M%C3%A9diath%C3%A8que_de_l%27architecture_et_du_patrimoine_-_APMH00000692.jpg" alt="Centre de Chorges avec l'église Saint-Victor" style="width:100%; max-width:600px; height:auto; margin-top:15px; border-radius: 8px;">
-                    <li><strong>Soir :</strong> Dîner à **La Table de Chorges** (cuisine locale et ambiance chaleureuse).</li>
+                    <img src="http://googleusercontent.com/image_generation_content/3" alt="Centre de Chorges avec l'église Saint-Victor" style="width:100%; max-width:600px; height:auto; margin-top:15px; border-radius: 8px;">
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Sentier du Calvaire** à Chorges. Une petite boucle facile au départ du village offrant de jolis points de vue sur le lac et les environs. (Environ 1h, peu de dénivelé).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.latabledechorges.fr/" target="_blank" rel="noopener noreferrer">**La Table de Chorges**</a> (cuisine locale et ambiance chaleureuse).</li>
                 </ul>
             </div>
         </section>
@@ -361,7 +381,8 @@
                     <li><strong>Matin :</strong> Profitez des **plages du lac de Serre-Ponçon** (plage des Pommiers ou des Tremouilles, par exemple). Possibilité de louer un pédalo, un paddle ou de faire du canoë.</li>
                     <li><strong>Midi :</strong> Pique-nique au bord du lac ou déjeuner dans une **paillote** (vérifiez l'ouverture pour l'été 2025).</li>
                     <li><strong>Après-midi :</strong> Baignade et farniente, ou initiation au **kitesurf** / **windsurf** pour les plus aventureux.</li>
-                    <li><strong>Soir :</strong> Dîner au **Restaurant Le Baron** à Chorges (bonne réputation pour sa cuisine traditionnelle).</li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **tour des Demoiselles Coiffées de Pontis**. Une promenade courte et étonnante pour découvrir ces formations géologiques uniques, avec vue sur le lac. (Environ 45 min - 1h, facile).</li>
+                    <li><strong>Soir :</strong> Dîner au <a href="https://restaurantlebaron.fr/" target="_blank" rel="noopener noreferrer">**Restaurant Le Baron**</a> à Chorges (bonne réputation pour sa cuisine traditionnelle).</li>
                 </ul>
             </div>
         </section>
@@ -373,10 +394,10 @@
             </div>
             <div class="section-content">
                 <ul class="activity-list">
-                    <li><strong>Matin :</strong> Randonnée vers le **Pic de Morgon** (plusieurs niveaux de difficulté, des vues imprenables sur le lac). Prévoyez de bonnes chaussures et de l'eau.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée modérée :</strong> Randonnée vers le **Pic de Morgon** depuis le Col de la Batie. Plusieurs itinéraires possibles, des vues imprenables sur le lac de Serre-Ponçon. (Environ 3-4h, dénivelé significatif, prévoir de bonnes chaussures).</li>
                     <li><strong>Midi :</strong> Pique-nique en altitude pour profiter du panorama.</li>
                     <li><strong>Après-midi :</strong> Détente et récupération à votre hébergement.</li>
-                    <li><strong>Soir :</strong> Dîner à **L'Auberge de l'Ange** (cuisine de terroir, pensez à réserver).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.auberge-ange-chorges.com/" target="_blank" rel="noopener noreferrer">**L'Auberge de l'Ange**</a> (cuisine de terroir, pensez à réserver).</li>
                 </ul>
             </div>
         </section>
@@ -389,9 +410,10 @@
             <div class="section-content">
                 <ul class="activity-list">
                     <li><strong>Matin :</strong> Visite du **Barrage de Serre-Ponçon** (possibilité de visiter la maison du lac pour en apprendre plus sur sa construction).</li>
-                    <li><strong>Midi :</strong> Déjeuner à **Embrun**, ville voisine pleine de charme. Le **Restaurant La Cabane** pourrait être une option sympa.</li>
+                    <li><strong>Midi :</strong> Déjeuner à **Embrun**, ville voisine pleine de charme. Le <a href="https://www.lacabaneembrun.com/" target="_blank" rel="noopener noreferrer">**Restaurant La Cabane**</a> pourrait être une option sympa.</li>
                     <li><strong>Après-midi :</strong> Flânerie dans les rues d'Embrun, visite de la **Cathédrale Notre-Dame du Réal**.</li>
-                    <li><strong>Soir :</strong> Dégustation de produits locaux au **marché de Chorges** (si un marché nocturne a lieu ce soir-là, à vérifier) ou dîner à **La Crêperie des Lacs**.</li>
+                    <li class="hiking-suggestion"><strong>Balade urbaine/nature :</strong> Promenade le long de la **Durance à Embrun** ou autour du plan d'eau. Une balade facile et relaxante, parfaite après une visite culturelle. (Environ 1-2h, plat).</li>
+                    <li><strong>Soir :</strong> Dégustation de produits locaux au **marché de Chorges** (si un marché nocturne a lieu ce soir-là, à vérifier) ou dîner à <a href="https://www.la-creperie-des-lacs.fr/" target="_blank" rel="noopener noreferrer">**La Crêperie des Lacs**</a>.</li>
                 </ul>
             </div>
         </section>
@@ -411,7 +433,8 @@
                     </li>
                     <li><strong>Midi :</strong> Déjeuner sur le pouce près de l'activité choisie.</li>
                     <li><strong>Après-midi :</strong> Détente ou baignade.</li>
-                    <li><strong>Soir :</strong> Dîner au **Restaurant Le Clos des Vignes** (si vous cherchez une option un peu plus raffinée).</li>
+                    <li class="hiking-suggestion"><strong>Balade légère :</strong> Autour du **Lac de Saint-Apollinaire**. Une petite boucle ombragée et très agréable, idéale pour se rafraîchir. (Environ 1h30, peu de dénivelé).</li>
+                    <li><strong>Soir :</strong> Dîner au <a href="https://leclosdesvignes05.com/" target="_blank" rel="noopener noreferrer">**Restaurant Le Clos des Vignes**</a> (si vous cherchez une option un peu plus raffinée).</li>
                 </ul>
             </div>
         </section>
@@ -423,10 +446,11 @@
             </div>
             <div class="section-content">
                 <ul class="activity-list">
-                    <li><strong>Matin :</strong> Excursion vers la **vallée de Champoléon** ou le **Parc national des Écrins**. Possibilité de faire une randonnée plus facile, par exemple vers le **lac des Sirènes**.</li>
+                    <li><strong>Matin :</strong> Excursion vers la **vallée de Champoléon** ou le **Parc national des Écrins**.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée facile/modérée :</strong> Randonnée vers le **Lac des Sirènes** (départ de Champoléon, Les Borels). Une belle balade en vallée pour atteindre un lac de montagne. (Environ 2h30-3h, dénivelé modéré).</li>
                     <li><strong>Midi :</strong> Pique-nique ou déjeuner dans une auberge de montagne (vérifiez les options sur place).</li>
                     <li><strong>Après-midi :</strong> Visite d'un village de montagne typique comme **Réallon** ou **Crévoux**, découverte de l'artisanat local.</li>
-                    <li><strong>Soir :</strong> Dîner à **L'Estaminet** à Chorges (bonne ambiance et cuisine simple).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.l-estaminet-chorges.fr/" target="_blank" rel="noopener noreferrer">**L'Estaminet**</a> à Chorges (bonne ambiance et cuisine simple).</li>
                 </ul>
             </div>
         </section>
@@ -446,6 +470,7 @@
                             <li>Achats de souvenirs.</li>
                         </ul>
                     </li>
+                    <li class="hiking-suggestion"><strong>Balade à vélo ou à pied :</strong> La **voie verte du lac de Serre-Ponçon**. Plusieurs sections sont aménagées pour des balades faciles et agréables le long des rives. (Durée variable selon l'envie, plat).</li>
                     <li><strong>Soir :</strong> Dîner au restaurant de votre choix. Pour le 15 août, de nombreuses communes autour du lac de Serre-Ponçon organisent des **feux d'artifice**. Renseignez-vous sur les lieux et horaires pour profiter du spectacle !</li>
                 </ul>
             </div>
@@ -462,7 +487,8 @@
                     <li><strong>Midi :</strong> Déjeuner en route (voir section Trajets).</li>
                     <li><strong>Après-midi :</strong> Arrivée à **La Clusaz**, installation à votre hébergement.</li>
                     <li><strong>Fin d'après-midi :</strong> Première promenade dans le centre du village pour vous imprégner de l'ambiance montagnarde.</li>
-                    <li><strong>Soir :</strong> Dîner au **Restaurant La Scierie** (cuisine locale revisitée dans un cadre charmant).</li>
+                    <li class="hiking-suggestion"><strong>Balade découverte :</strong> Le **tour du village de La Clusaz et des bords du Nom**. Une balade tranquille pour repérer les lieux, le centre, les commerces et les départs de sentiers. (Environ 1h, facile).</li>
+                    <li><strong>Soir :</strong> Dîner au <a href="https://www.restaurantlascierie.com/" target="_blank" rel="noopener noreferrer">**Restaurant La Scierie**</a> (cuisine locale revisitée dans un cadre charmant).</li>
                 </ul>
             </div>
         </section>
@@ -478,10 +504,11 @@
             </div>
             <div class="section-content">
                 <ul class="activity-list">
-                    <li><strong>Matin :</strong> Ascension en télécabine du **Beauregard** pour une vue panoramique sur la station et les montagnes environnantes. Petite randonnée facile sur le plateau.</li>
+                    <li><strong>Matin :</strong> Ascension en télécabine du **Beauregard** pour une vue panoramique sur la station et les montagnes environnantes.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée facile :</strong> Le **Tour du Plateau de Beauregard**. Une magnifique balade accessible à tous, avec des vues sur la chaîne des Aravis et le Mont-Blanc par temps clair. (Environ 2h-2h30, peu de dénivelé).</li>
                     <li><strong>Midi :</strong> Déjeuner en altitude dans un chalet d'alpage (ex: **Chalet de Balme** si accessible, ou autre restaurant d'altitude).</li>
                     <li><strong>Après-midi :</strong> Balade le long du **Torrent du Nom** ou visite de la **Maison du Patrimoine** pour découvrir l'histoire du village.</li>
-                    <li><strong>Soir :</strong> Dîner à **L'Ou'Vraille** (spécialités savoyardes authentiques).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.l-ouvraille.com/" target="_blank" rel="noopener noreferrer">**L'Ou'Vraille**</a> (spécialités savoyardes authentiques).</li>
                 </ul>
             </div>
         </section>
@@ -496,7 +523,8 @@
                     <li><strong>Matin :</strong> Départ pour le village voisin du **Grand-Bornand**. Flânerie dans le village classé, célèbre pour ses chalets.</li>
                     <li><strong>Midi :</strong> Déjeuner au Grand-Bornand.</li>
                     <li><strong>Après-midi :</strong> Visite d'une **ferme d'alpage** pour assister à la fabrication du Reblochon (possible d'acheter sur place). De nombreuses fermes proposent des visites, comme la **Ferme des Corbassières**.</li>
-                    <li><strong>Soir :</strong> Dîner à La Clusaz, peut-être au **Chalet du Lac** (pour une ambiance cosy).</li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Sentier des Chalets d'Alpage** au Grand-Bornand Chinaillon. Une promenade agréable pour découvrir l'architecture traditionnelle et les alpages. (Environ 1h30-2h, peu de dénivelé).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.chaletdulac.fr/" target="_blank" rel="noopener noreferrer">**Le Chalet du Lac**</a> (pour une ambiance cosy).</li>
                 </ul>
             </div>
         </section>
@@ -511,11 +539,12 @@
                     <li><strong>Journée complète :</strong> Excursion à **Annecy** (environ 45 min de route).
                         <ul>
                             <li>**Matin :** Balade dans la **Vieille Ville** d'Annecy, surnommée la "Venise des Alpes", ses canaux, son Palais de l'Isle.</li>
+                            <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **tour du Bout du Lac d'Annecy** à Doussard. Une balade très agréable et plate, accessible à vélo aussi, avec des plages et des vues sur les montagnes environnantes. (Durée variable, plat).</li>
                             <li>**Midi :** Déjeuner à Annecy.</li>
                             <li>**Après-midi :** Activités sur le **Lac d'Annecy** : baignade sur l'une des plages (ex: Plage des Marquisats), location de pédalo/paddle, ou tour en bateau.</li>
                         </ul>
                     </li>
-                    <li><strong>Soir :</strong> Retour à La Clusaz. Dîner au **K2 Restaurant** (ambiance moderne, cuisine variée).</li>
+                    <li><strong>Soir :</strong> Retour à La Clusaz. Dîner au <a href="https://www.k2restaurant.fr/" target="_blank" rel="noopener noreferrer">**K2 Restaurant**</a> (ambiance moderne, cuisine variée).</li>
                 </ul>
             </div>
         </section>
@@ -535,7 +564,8 @@
                     </li>
                     <li><strong>Midi :</strong> Déjeuner rapide en fonction de votre activité.</li>
                     <li><strong>Après-midi :</strong> Détente après les efforts ou continuation de l'activité choisie.</li>
-                    <li><strong>Soir :</strong> Dîner au **Restaurant le Vieux Chalet** (ambiance traditionnelle, plats savoyards).</li>
+                    <li class="hiking-suggestion"><strong>Balade modérée :</strong> La **Boucle du Lac des Confins**. Une randonnée accessible depuis La Clusaz, offrant de belles vues sur les sommets environnants et un cadre pastoral. (Environ 2h30, dénivelé modéré).</li>
+                    <li><strong>Soir :</strong> Dîner au <a href="https://www.levieuxchalet-laclusaz.com/" target="_blank" rel="noopener noreferrer">**Restaurant le Vieux Chalet**</a> (ambiance traditionnelle, plats savoyards).</li>
                 </ul>
             </div>
         </section>
@@ -547,10 +577,10 @@
             </div>
             <div class="section-content">
                 <ul class="activity-list">
-                    <li><strong>Matin :</strong> Randonnée vers le **Col des Aravis** (accès en voiture possible) ou une randonnée depuis La Clusaz offrant des vues spectaculaires sur la Chaîne des Aravis et le Mont-Blanc. De nombreuses options existent, renseignez-vous auprès de l'Office de Tourisme.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée modérée à difficile :</strong> Randonnée au départ du **Col des Aravis** vers la **Croix de Colomban** ou les environs du Mont Lachat. Offre des panoramas grandioses sur la chaîne des Aravis et le Mont-Blanc. (Durée variable selon le sentier, dénivelé important). Renseignez-vous auprès de l'Office de Tourisme pour choisir l'itinéraire adapté.</li>
                     <li><strong>Midi :</strong> Pique-nique en montagne ou déjeuner dans une auberge de col.</li>
                     <li><strong>Après-midi :</strong> Retour à La Clusaz, flânerie dans les boutiques ou détente au spa de votre hébergement si disponible.</li>
-                    <li><strong>Soir :</strong> Dîner à **La Ferme** (restaurant emblématique de La Clusaz, cuisine du terroir).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.laferme-restaurant.com/" target="_blank" rel="noopener noreferrer">**La Ferme**</a> (restaurant emblématique de La Clusaz, cuisine du terroir).</li>
                 </ul>
             </div>
         </section>
@@ -571,6 +601,7 @@
                             <li>Achats de souvenirs et produits locaux.</li>
                         </ul>
                     </li>
+                    <li class="hiking-suggestion"><strong>Randonnée facile :</strong> Le **Sentier des Bords du Nom** jusqu'au Pont des Saules. Une balade très agréable et ombragée le long de la rivière, idéale pour une dernière promenade sans effort. (Environ 1h30, plat).</li>
                     <li><strong>Soir :</strong> Dîner d'adieu dans le restaurant de votre choix, ou pourquoi pas une fondue/raclette !</li>
                 </ul>
             </div>
@@ -587,7 +618,8 @@
                     <li><strong>Midi :</strong> Déjeuner en route (voir section Trajets).</li>
                     <li><strong>Après-midi :</strong> Arrivée à **Génolhac** dans les Cévennes, installation à votre hébergement.</li>
                     <li><strong>Fin d'après-midi :</strong> Première immersion dans l'ambiance cévenole, découverte du village et de ses ruelles.</li>
-                    <li><strong>Soir :</strong> Dîner à **L'Auberge de la Tour** (cuisine locale, ambiance conviviale).</li>
+                    <li class="hiking-suggestion"><strong>Balade découverte :</strong> La **Promenade dans les ruelles de Génolhac**. Perdez-vous dans le cœur du village, découvrez son histoire et ses points de vue. (Environ 45 min - 1h, facile).</li>
+                    <li><strong>Soir :</strong> Dîner à <a href="https://www.auberge-de-la-tour.fr/" target="_blank" rel="noopener noreferrer">**L'Auberge de la Tour**</a> (cuisine locale, ambiance conviviale).</li>
                 </ul>
             </div>
         </section>
@@ -603,7 +635,7 @@
             </div>
             <div class="section-content">
                 <ul class="activity-list">
-                    <li><strong>Matin :</strong> Randonnée sur les sentiers cévenols. Par exemple, le circuit des **Caves de Fustugères** ou une portion du GR70 (Chemin de Stevenson) qui passe à proximité.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée modérée :</strong> Le **Sentier des Dolmens de Castagnols** (départ près de Génolhac). Une boucle qui vous emmène à travers la forêt de châtaigniers et vous fait découvrir des vestiges mégalithiques. (Environ 3h, dénivelé modéré).</li>
                     <li><strong>Midi :</strong> Pique-nique au bord de la rivière ou déjeuner simple à Génolhac.</li>
                     <li><strong>Après-midi :</strong> Baignade et détente dans une des nombreuses **rivières et "gours"** (petits bassins naturels) de la région, comme le Gardon de Mialet ou le Luech.</li>
                     <li><strong>Soir :</strong> Dégustation de produits locaux au marché de Génolhac (si un marché a lieu le dimanche soir, à vérifier) ou dîner à votre hébergement/restaurant local.</li>
@@ -621,7 +653,8 @@
                     <li><strong>Matin :</strong> Visite de **La Garde-Guérin** (village médiéval fortifié, classé Plus Beaux Villages de France) ou de **Villefort** et son lac.</li>
                     <li><strong>Midi :</strong> Déjeuner dans un de ces villages.</li>
                     <li><strong>Après-midi :</strong> Exploration des environs de **Chambon** et des paysages cévenols typiques, avec ses terrasses et châtaigniers.</li>
-                    <li><strong>Soir :</strong> Dîner au **Restaurant du Pont de Rastel** (cadre agréable au bord de l'eau, près de Génolhac).</li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Tour du Lac de Villefort**. Une promenade agréable et accessible, avec des points de vue sur le lac et les montagnes environnantes. (Environ 1h30-2h, plat).</li>
+                    <li><strong>Soir :</strong> Dîner au <a href="https://www.lepontderastel.com/" target="_blank" rel="noopener noreferrer">**Restaurant du Pont de Rastel**</a> (cadre agréable au bord de l'eau, près de Génolhac).</li>
                 </ul>
             </div>
         </section>
@@ -636,6 +669,7 @@
                     <li><strong>Matin :</strong> Visite du **Musée des Vallées Cévenoles** à Saint-Jean-du-Gard ou le **Musée du Désert** à Mialet (pour l'histoire du protestantisme cévenol). Alternative : la **Maison Rouge, Musée des Vallées Cévenoles** à St-Jean-du-Gard pour la culture cévenole.</li>
                     <li><strong>Midi :</strong> Déjeuner dans les environs.</li>
                     <li><strong>Après-midi :</strong> Plongée dans l'histoire minière avec la visite du **Parc des Cévennes** à La Grand-Combe (ancien site minier reconverti) ou une balade sur les traces des cheminées de fées de la **corniche des Cévennes**.</li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Chemin des Terrasses** à Saint-Jean-du-Gard. Une petite boucle pour découvrir les terrasses agricoles typiques des Cévennes et le patrimoine rural. (Environ 1h30, peu de dénivelé).</li>
                     <li><strong>Soir :</strong> Dîner et soirée reposante à Génolhac.</li>
                 </ul>
             </div>
@@ -651,7 +685,8 @@
                     <li><strong>Matin :</strong> Prenez le **Train à vapeur des Cévennes** depuis Saint-Jean-du-Gard ou Anduze. Un voyage pittoresque à travers les paysages.</li>
                     <li><strong>Midi :</strong> Déjeuner à **Anduze**, réputée pour ses poteries (vase d'Anduze).</li>
                     <li><strong>Après-midi :</strong> Visite de la **Bambouseraie de Prafrance** près d'Anduze (un jardin exotique unique en Europe).</li>
-                    <li><strong>Soir :</strong> Retour à Génolhac. Dîner au **Restaurant l'Escale Cévenole** (simple et efficace).</li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Sentier des Figuiers** à Mialet. Une jolie promenade ombragée le long du Gardon, accessible à tous. (Environ 1h, plat).</li>
+                    <li><strong>Soir :</strong> Retour à Génolhac. Dîner au <a href="https://escalecevenole.fr/" target="_blank" rel="noopener noreferrer">**Restaurant l'Escale Cévenole**</a> (simple et efficace).</li>
                 </ul>
             </div>
         </section>
@@ -671,6 +706,7 @@
                     </li>
                     <li><strong>Midi :</strong> Pique-nique ou déjeuner sur le pouce.</li>
                     <li><strong>Après-midi :</strong> Détente ou baignade en rivière.</li>
+                    <li class="hiking-suggestion"><strong>Randonnée modérée :</strong> La **Boucle du Pont des Camisards** (près de Mialet). Un circuit historique et naturel au cœur des Cévennes, avec de belles baignades possibles. (Environ 2h30, dénivelé modéré).</li>
                     <li><strong>Soir :</strong> Dîner à Génolhac, peut-être pour goûter la cuisine cévenole.</li>
                 </ul>
             </div>
@@ -691,6 +727,7 @@
                             <li>Faire des achats de produits locaux (miel de châtaignier, confitures, oignons doux des Cévennes).</li>
                         </ul>
                     </li>
+                    <li class="hiking-suggestion"><strong>Balade facile :</strong> Le **Tour du village de Vialas et ses alentours**. Un joli village cévenol avec des balades courtes et charmantes pour s'imprégner de l'ambiance locale. (Environ 1h-1h30, facile).</li>
                     <li><strong>Soir :</strong> Dîner d'adieu dans un restaurant coup de cœur de la région, ou pourquoi pas un barbecue si votre hébergement le permet.</li>
                 </ul>
             </div>
@@ -706,6 +743,7 @@
                     <li><strong>Matin :</strong> Visite d'un marché local si disponible ce jour-là (vérifiez les jours de marché à Génolhac ou dans les villages voisins) pour acheter des produits du terroir avant de partir. Alternativement, une dernière petite balade autour du village.</li>
                     <li><strong>Midi :</strong> Déjeuner léger à Génolhac.</li>
                     <li><strong>Après-midi :</strong> Préparation des bagages et derniers moments de détente.</li>
+                    <li class="hiking-suggestion"><strong>Balade légère :</strong> Le **sentier botanique de Génolhac**. Une courte promenade pédagogique pour découvrir la flore locale. (Environ 45 min, facile).</li>
                     <li><strong>Soir :</strong> Dîner simple et reposant à Génolhac pour votre dernière soirée.</li>
                 </ul>
             </div>
@@ -756,7 +794,7 @@
             </div>
             <div class="section-content">
                 <ul class="equipment-list">
-                    <li>Chaussures de randonnée confortables et déjà faites (indispensable !)</li>
+                    <li>**Chaussures de randonnée confortables et déjà faites (indispensable !)**</li>
                     <li>Sandales ou tongs pour la plage et le bord du lac/rivière</li>
                     <li>**Chaussures d'eau ou vieilles baskets pour la baignade en rivière (pour les cailloux)**</li>
                     <li>Serviettes de bain / serviettes de plage</li>
@@ -766,7 +804,7 @@
                     <li>Petite trousse de secours complète (pansements ampoules, désinfectant, antidouleur, anti-histaminique...)</li>
                     <li>Petits sacs à dos (pour les randonnées et sorties à la journée)</li>
                     <li>Bouteilles d'eau réutilisables / gourdes (au moins 1.5L par personne pour la rando)</li>
-                    <li>Bâtons de randonnée (très recommandés en montagne et pour certains terrains cévenols)</li>
+                    <li>**Bâtons de randonnée (très recommandés en montagne et pour certains terrains cévenols)**</li>
                     <li>Appareil photo</li>
                     <li>Chargeurs de téléphone et autres appareils</li>
                     <li>Brosse à dents, dentifrice, shampoing, gel douche...</li>
@@ -774,7 +812,7 @@
                     <li>Couteau suisse (utile pour pique-niques, etc.)</li>
                     <li>Jeu de cartes ou livre pour les moments de détente</li>
                     <li>Sac étanche (pour les activités nautiques à Chorges et les baignades en rivière)</li>
-                    <li>Carte IGN de la région et boussole (ou application GPS fiable sur smartphone)</li>
+                    <li>**Carte IGN de la région et boussole (ou application GPS fiable sur smartphone)**</li>
                     <li>Petite lampe frontale ou de poche (utile pour les grottes ou balades nocturnes)</li>
                     <li>**Petit sac à linge sale**</li>
                 </ul>
@@ -792,7 +830,7 @@
                 <ul class="todo-list">
                     <li><input type="checkbox" id="todo1"><label for="todo1">Vérifier les réservations d'hébergement (Chorges, La Clusaz et Génolhac)</label></li>
                     <li><input type="checkbox" id="todo2"><label for="todo2">Rechercher les sites web/menus des restaurants pour réserver (dans les 3 régions)</label></li>
-                    <li><input type="checkbox" id="todo3"><label for="todo3">Télécharger des cartes de randonnées hors ligne (des 3 régions)</label></li>
+                    <li><input type="checkbox" id="todo3"><label for="todo3">**Télécharger des cartes de randonnées hors ligne (des 3 régions, ex: Visorando, AllTrails, IGN Rando)**</label></li>
                     <li><input type="checkbox" id="todo4"><label for="todo4">Vérifier l'ouverture des attractions (Musées, Maison du Lac, remontées mécaniques, grottes...)</label></li>
                     <li><input type="checkbox" id="todo5"><label for="todo5">Faire le plein de la voiture ou vérifier les transports</label></li>
                     <li><input type="checkbox" id="todo6"><label for="todo6">Préparer une trousse de médicaments de base et spécifique à la montagne/rivière</label></li>
@@ -857,12 +895,13 @@
                 <div class="note">
                     <p><strong>Réservations :</strong> En août, c'est la pleine saison partout. Pensez à **réserver vos hébergements, vos restaurants** et éventuellement vos activités à l'avance, surtout pour les activités encadrées (rafting, parapente, canyoning, visites de grottes).</p>
                     <p><strong>Météo :</strong> La météo en montagne peut changer très vite. Prévoyez des couches de vêtements (système des "3 couches" : sous-vêtement technique, polaire, veste imperméable/coupe-vent) pour vous adapter. Dans les Cévennes, il fera probablement plus chaud, mais les orages peuvent être violents. Restez informé sur la météo locale.</p>
-                    <p><strong>Hydratation et alimentation :</strong> Buvez régulièrement et emportez des snacks énergétiques (barres de céréales, fruits secs) lors de vos activités. La déshydratation est plus rapide en altitude et par forte chaleur.</p>
+                    <p><strong>Hydratation et alimentation :</strong> Buvez régulièrement et emportez des snacks énergétiques (barres de céréaires, fruits secs) lors de vos activités. La déshydratation est plus rapide en altitude et par forte chaleur.</p>
                     <p><strong>Sécurité en montagne et en rivière :</strong> Ne surestimez jamais vos capacités. Renseignez-vous sur les conditions des sentiers et rivières auprès des Offices de Tourisme ou des professionnels. Partez toujours avec de l'eau, une carte, un téléphone chargé et informez quelqu'un de votre itinéraire. Soyez vigilant aux crues subites dans les rivières cévenoles en cas d'orage.</p>
                     <p><strong>Transports :</strong> Une voiture est fortement recommandée pour explorer les régions de Chorges, des Aravis et des Cévennes, car les transports en commun sont moins développés pour accéder aux départs de randonnées ou aux villages isolés.</p>
                     <p><strong>Offices de Tourisme :</strong> N'hésitez pas à vous rendre aux **Offices de Tourisme locaux** (Chorges, Embrun, La Clusaz, Grand-Bornand, Génolhac, Villefort, Anduze...) dès votre arrivée pour obtenir des informations actualisées, des cartes de randonnées, des brochures sur les événements locaux et des conseils personnalisés.</p>
                     <p><strong>La Clusaz Pass/Carte d'Hôte :</strong> Renseignez-vous auprès de votre hébergeur à La Clusaz, beaucoup d'entre eux offrent une "Carte d'Hôte" qui donne accès à des réductions ou gratuités sur les remontées mécaniques, l'espace aquatique et certaines activités.</p>
                     <p><strong>Produits locaux :</strong> Profitez de chaque région pour découvrir ses spécialités ! Fromages dans les Alpes, fruits et produits du lac à Chorges, et dans les Cévennes : oignons doux, châtaignes, miel, cèpes (si la saison est propice).</p>
+                    <p><strong>Préparation Randonnée :</strong> Pour chaque balade/randonnée, assurez-vous d'avoir des **chaussures adaptées**, de l'**eau en quantité suffisante**, une **protection solaire** (chapeau, crème), et de consulter la **météo** avant de partir. Les temps indiqués sont des estimations moyennes.</p>
                 </div>
             </div>
         </section>
